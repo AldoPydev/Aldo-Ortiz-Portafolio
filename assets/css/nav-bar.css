@@ -1,0 +1,248 @@
+/*=============== CONTENEDOR ===============*/
+
+.header {
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: var(--z-fixed);
+  margin: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/*=============== MENU ===============*/
+.nav {
+  margin: auto;
+  width: 70%;
+  height: var(--header-height);
+  background-color: var(--body-color);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.nav__logo {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.nav__logo img {
+  width: 100%;
+  transition: transform 0.6s;
+}
+
+.nav__logo:hover i {
+  transform: rotateY(-360deg);
+}
+
+/*=============== BOTON MODO OSCURO ===============*/
+.nav__buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.nav__toggle {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: none;
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav__burger,
+.nav__close {
+  position: absolute;
+  transition:
+    opacity 0.3s,
+    transform 0.4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/*=============== MODO OSCURO ===============*/
+
+.dark-mode {
+  background: var(--title-color);
+  color: var(--body-color);
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.dark-mode span {
+  padding-left: 20px;
+  padding-right: 3px;
+}
+.dark-mode i {
+  width: 100%;
+  padding: 0;
+  font-size: 1.25rem;
+  justify-content: center;
+}
+
+/*=============== RESPONSIVE ===============*/
+/*=============== MENOR A X PX ===============*/
+@media screen and (max-width: 1150px) {
+  .nav__list li {
+    margin: 0;
+  }
+  .nav {
+    width: 90%;
+  }
+
+  .nav__menu {
+    position: fixed;
+    margin: auto;
+    top: 1.5rem;
+    width: 50%;
+    left: 0;
+    right: 0;
+    background-color: var(--body-color);
+    padding-block: 4rem;
+    border-radius: 2rem;
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.4s,
+      opacity 0.3s;
+  }
+  .nav__logo img {
+    margin-left: 30px;
+  }
+}
+
+/*=============== ENLACES ===============*/
+.nav__list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+.nav__link {
+  color: var(--first-color);
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/*=============== EFECTO HOVER ===============*/
+
+.nav__list li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1em;
+  padding: 0;
+}
+
+.nav__list a {
+  padding: 0.5em 0.8em;
+  color: var(--first-color);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav__list a::before,
+.nav__list a::after {
+  content: "";
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.nav__list a::before {
+  content: "";
+  right: 0;
+  top: 0;
+  border-top: 3px solid var(--first-color);
+  border-right: 3px solid var(--first-color);
+  transform: translate(-100%, 50%);
+}
+
+.nav__list a:after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid var(--first-color);
+  border-left: 3px solid var(--first-color);
+  transform: translate(100%, -50%);
+}
+
+.nav__list a:hover:before,
+.nav__list a:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.nav__list a:hover {
+  color: var(--first-color);
+}
+
+/*=============== MENU RESPONSIVE ===============*/
+.show-menu {
+  transform: translateY(5rem);
+  opacity: 1;
+  pointer-events: initial;
+}
+/*=============== MENU RESPONSIVE ICON ===============*/
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(-90deg);
+}
+
+/*=============== RESPONSIVE ===============*/
+/*=============== MAYOR A X PX ===============*/
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+    padding: 0.75rem 1rem;
+  }
+  .nav__logo {
+    width: 56px;
+    height: 56px;
+  }
+  .nav__logo i {
+    font-size: 2rem;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+  .nav__toggle {
+    display: none;
+  }
+}

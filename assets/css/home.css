@@ -1,0 +1,98 @@
+/*=============== CONTENEDOR ===============*/
+.hero {
+  background-color: var(--body-color);
+  color: var(--tittle-color);
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  border-radius: 1rem;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/*=============== IMG ===============*/
+
+.img_hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_hero img {
+  width: 50%;
+  position: relative;
+  bottom: 0;
+}
+
+/*=============== CONTENIDO ===============*/
+
+.content_hero {
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.titulo {
+  font-family: var(--body-font);
+  color: var(--first-color);
+  font-size: 3rem;
+}
+
+.descripcion {
+  margin: 4em 0;
+}
+
+/*=============== BOTON ===============*/
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--first-color);
+  color: var(--body-color);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  color: #fff;
+  background-color: #384fa8;
+}
+
+/*=============== MODO RESPONSIVE ===============*/
+
+/*Menor a X pixeles*/
+
+@media (max-width: 1000px) {
+  .hero {
+    margin-top: 120px;
+  }
+  .content_hero {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .img_hero {
+    margin-top: 20px;
+  }
+
+  .titulo {
+    font-family: var(--body-font);
+    color: var(--first-color);
+    font-size: 2rem;
+    margin-top: 0;
+  }
+
+  .descripcion {
+    margin: 2em 0;
+  }
+}

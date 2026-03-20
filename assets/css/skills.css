@@ -1,0 +1,87 @@
+/*=============== CONTENEDOR ===============*/
+.skills {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px 9%;
+  color: var(--tittle-color);
+  text-align: center;
+  border-radius: 1rem;
+  padding-top: 120px;
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.box-grid-skill {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+/*=============== CARDS ===============*/
+
+.item-card .link-card {
+  display: flex;
+  background-color: var(--body-color);
+  padding: 18px;
+  border-radius: 1rem;
+  text-decoration: none;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.2s ease;
+  border: 2px solid transparent;
+  transition: 0.2s ease;
+}
+
+.item-card .link-card .img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-card .link-card .img-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.item-card .link-card .title-card {
+  color: var(--body-color);
+  background-color: var(--first-color);
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: auto;
+  margin-bottom: 10px;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.item-card .link-card .subtitle-card {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.item-card .link-card .button-card {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--first-color);
+}
+
+.item-card .link-card:hover {
+  border-color: var(--first-color);
+}
+
+/*=============== MODO RESPONSIVE ===============*/
+
+@media (min-width: 1200px) {
+  .box-grid-skill {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,148 @@
+/*=============== IMPORT CSS ===============*/
+@import url("normalize.css");
+
+@import url("nav-bar.css");
+@import url("home.css");
+@import url("skills.css");
+@import url("proyect.css");
+@import url("contact.css");
+
+/* importar tipografias */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(228, 85%, 63%);
+  --title-color: hsl(180, 4%, 5%);
+  --text-color: hsl(228, 24.39%, 16.08%);
+  --body-color: hsl(228, 100%, 99%);
+  --shadow-color: hsla(228, 80%, 4%, 0.1);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Nunito Sans", system-ui;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.75rem;
+  --tiny-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --normal-font-size: 1rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-image: url(../img/fondo.png);
+  background-size: 100%;
+  color: var(--text-color);
+  transition: background-color 0.4s;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  all: unset;
+}
+
+/*=============== VARIABLES DARK THEME ===============*/
+body.dark-theme {
+  --first-color: hsl(228, 70%, 63%);
+  --title-color: hsl(228, 18%, 96%);
+  --text-color: hsl(228, 12%, 61%);
+  --body-color: hsl(228, 24%, 16%);
+  --shadow-color: hsla(228, 80%, 4%, 0.3);
+
+  background-image: url(../img/fondo2.png);
+  background-size: 100%;
+}
+
+/*========== 
+	Color changes in some parts of 
+	the website, in dark theme
+==========*/
+.dark-theme .sidebar__content::-webkit-scrollbar {
+  background-color: hsl(228, 16%, 30%);
+}
+
+.dark-theme .sidebar__content::-webkit-scrollbar-thumb {
+  background-color: hsl(228, 16%, 40%);
+}
+
+/*===============   CONTENEDOR PADRE ===============*/
+.contenedor {
+  margin: auto;
+}
+.cabecera {
+  width: 100%;
+  margin: 90px;
+}
+
+/*===============   ANIMACION DE CARGAR  ===============*/
+
+.anim {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: moveup 0.5s linear forwards;
+}
+
+@keyframes moveup {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/*=============== SHOW SECCIONES ===============*/
+
+section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+section.activo {
+  display: block;
+  opacity: 1;
+}
+
