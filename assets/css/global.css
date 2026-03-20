@@ -115,7 +115,14 @@ body.dark-theme {
 }
 
 @media (max-width: 900px) {
+  body {
+    margin: auto;
+    width: 80%;
+  }
   .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
   }
 }
