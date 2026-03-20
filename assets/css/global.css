@@ -51,7 +51,7 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
+  margin: auto 0;
 }
 
 html {
@@ -114,18 +114,13 @@ body.dark-theme {
   margin: auto;
 }
 
-@media (max-width: 900px) {
-  body {
-    margin: auto;
-    width: 80%;
-  }
-  .contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-  }
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
+
 /*===============   ANIMACION DE CARGAR  ===============*/
 
 .anim {
