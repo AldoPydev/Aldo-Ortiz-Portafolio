@@ -80,8 +80,14 @@
 
 /*=============== MODO RESPONSIVE ===============*/
 
+@media (max-width: 900px) {
+  .box-grid-skill {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 1200px) {
   .box-grid-skill {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
