@@ -112,9 +112,13 @@ body.dark-theme {
 /*===============   CONTENEDOR PADRE ===============*/
 .contenedor {
   margin: auto;
-  overflow: hidden;
 }
 
+@media (max-width: 900px) {
+  .contenedor {
+    width: 80%;
+  }
+}
 /*===============   ANIMACION DE CARGAR  ===============*/
 
 .anim {
