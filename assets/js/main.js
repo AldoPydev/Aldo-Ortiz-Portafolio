@@ -1,61 +1,52 @@
 /*=============== SHOW SIDEBAR ===============*/
-const showMenu = (navId, toggleId) => {
-  const nav = document.getElementById(navId),
-    toggle = document.getElementById(toggleId);
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("show-menu");
-    toggle.classList.toggle("show-icon");
-  });
-};
-showMenu("nav-menu", "nav-toggle");
-
-/*=============== SHOW SECTION ===============*/
 document.addEventListener("DOMContentLoaded", () => {
+  const navMenu = document.getElementById("nav-menu");
+  const navToggle = document.getElementById("nav-toggle");
   const enlaces = document.querySelectorAll(".nav__link");
   const secciones = document.querySelectorAll("section");
 
+  // 1. Lógica para Abrir / Cerrar con el botón Toggle
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      console.log("Toggle clickeado"); // Debug
+      navMenu.classList.toggle("show-menu");
+      navToggle.classList.toggle("show-icon");
+    });
+  }
+
+  // 2. Función para mostrar secciones
   function mostrarSeccion(id) {
-    secciones.forEach(sec => sec.classList.remove("activo"));
+    secciones.forEach((sec) => sec.classList.remove("activo"));
     const seleccionada = document.getElementById(id);
     if (seleccionada) {
       seleccionada.classList.add("activo");
-      // Actualizar el hash en la URL
       window.location.hash = id;
     }
   }
 
-  // Asignar eventos a cada enlace
-  enlaces.forEach(enlace => {
-    enlace.addEventListener("click", e => {
+  // 3. Lógica para los enlaces (Navegar y CERRAR)
+  enlaces.forEach((enlace) => {
+    enlace.addEventListener("click", (e) => {
       e.preventDefault();
       const id = enlace.getAttribute("data-seccion");
+
+      console.log("Enlace clickeado, seccion:", id); // Debug
+
       mostrarSeccion(id);
+
+      // Cierre forzado del menú al hacer clic
+      if (navMenu && navToggle) {
+        navMenu.classList.remove("show-menu");
+        navToggle.classList.remove("show-icon");
+        console.log("Clases removidas"); // Debug
+      }
     });
   });
 
-  // Al cargar la página, revisar si hay hash en la URL
-const hash = window.location.hash.replace("#", "");
-if (hash) {
-  mostrarSeccion(hash);
-} else {
-  mostrarSeccion("home"); // por defecto Home
-}
-
-
-
+  // Manejo de hash inicial
+  const hash = window.location.hash.replace("#", "");
+  mostrarSeccion(hash || "home");
 });
-
-/*=============== LINK ACTIVE ===============
-const sidebarLink = document.querySelectorAll(".sidebar__list a");
-
-function linkColor() {
-  sidebarLink.forEach((l) => l.classList.remove("active-link"));
-  this.classList.add("active-link");
-}
-
-sidebarLink.forEach((l) => l.addEventListener("click", linkColor));
-*/
 /*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";

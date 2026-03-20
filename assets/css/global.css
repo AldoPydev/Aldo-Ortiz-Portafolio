@@ -112,9 +112,9 @@ body.dark-theme {
 /*===============   CONTENEDOR PADRE ===============*/
 .contenedor {
   margin: auto;
+  overflow: hidden;
 }
 .cabecera {
-  width: 100%;
   margin: 90px;
 }
 
@@ -145,4 +145,3 @@ section.activo {
   display: block;
   opacity: 1;
 }
-
